@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Neoenergia</title>
+  <link rel="stylesheet" href="he.css" />
+
+  <!-- Font Awesome para ícones -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Botão de alternância de tema -->
+  <div class="toggle-theme">
+    <button id="themeToggle">🌙 Alternar Tema</button>
+  </div>
+
+  <div class="login-container">
+    <div class="login-box animate">
+
+      <!-- Logo como estava originalmente -->
+      
+
+      <!-- Subtítulo -->
+      <h2>Login Corporativo - ZN</h2>
+
+      <!-- Formulário de login -->
+      <form id="loginForm">
+
+        <div class="input-group">
+          <label for="matricula">Matrícula</label>
+          <div class="input-icon">
+            <i class="fas fa-id-badge"></i>
+            <input type="text" id="matricula" placeholder="Digite sua matrícula" required />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="senha">Senha</label>
+          <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="senha" placeholder="Digite sua senha" required />
+          </div>
+        </div>
+
+        <button type="submit">Entrar</button>
+      </form>
+
+      <!-- Rodapé -->
+      <p class="footer-text">Sistema em Desenvolvimento por Lidia CruzS
+      </p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="he.js"></script>
+</body>
+</html>
