@@ -34,17 +34,18 @@
     </section>
 
     <section id="formColaborador" class="form-area hidden">
-      <h3>Preencha as informações das 8 áreas</h3>
+      <h3>PREENCHA AS INFORMAÇÕES ABAIXO</h3>
       <form id="colabForm">
         <div class="field-grid">
-          <label>Nome e Matrícula <input type="text" name="engenharia" required /></label>
+          <label>Nome<input type="text" name="engenharia" required /></label>
+          <label>Matrícula<input type="text" name="engenharia" required /></label>
           <label>Mes<input type="text" name="financeiro" required /></label>
           <label>Data<input type="text" name="rh" required /></label>
           <label>Número de Horas<input type="text" name="ti" required /></label>
           <label>Autorização<input type="text" name="seguranca" required /></label>
           <label>Justificativas<input type="text" name="comunicacao" required /></label>
-          <label>Motivos<input type="text" name="operacoes" required /></label>
-          <label>Área<input type="text" name="sustentabilidade" required /></label>
+          <label>Macroprocesso(motivo)<input type="text" name="operacoes" required /></label>
+          <label>Área<input type="text" name="operacoes" required /></label>
         </div>
         <button type="submit" class="enviar-btn">Enviar</button>
       </form>
@@ -56,13 +57,14 @@
         <table id="respostaTabela" class="editable-table">
           <thead>
             <tr>
-              <th>Nome e Matrícula</th>
+              <th>Nome</th>
+              <th>Matrícula</th>
               <th>Mes</th>
               <th>Data</th>
               <th>Número de Horas</th>
               <th>Autorização</th>
               <th>Justificativas</th>
-              <th>Motivos</th>
+              <th>Macroprocesso(motivo)</th>
               <th>Área</th>
             </tr>
           </thead>
