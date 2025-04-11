@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Início - Neoenergia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="inicio.css" />
   <script defer src="inicio.js"></script>
 </head>
@@ -28,8 +29,10 @@
 
     <section class="role-select">
       <h2>Você é:</h2>
-      <button class="role-btn" onclick="selecionarPapel('admin')">Administrador</button>
-      <button class="role-btn" onclick="selecionarPapel('colaborador')">Colaborador</button>
+      <div class="role-buttons">
+        <button class="role-btn" onclick="selecionarPapel('admin')">Administrador</button>
+        <button class="role-btn" onclick="selecionarPapel('colaborador')">Colaborador</button>
+      </div>
     </section>
 
     <section id="formColaborador" class="form-area hidden">
@@ -39,11 +42,11 @@
           <label>Nome<input type="text" name="nome" required /></label>
           <label>Matrícula<input type="text" name="matricula" required /></label>
           <label>Mês<input type="text" name="mes" required /></label>
-          <label>Data<input type="text" name="data" required /></label>
-          <label>Número de Horas<input type="text" name="horas" required /></label>
+          <label>Data<input type="date" name="data" required /></label>
+          <label>Número de Horas<input type="number" name="horas" min="0" required /></label>
           <label>Autorização<input type="text" name="autorizacao" required /></label>
           <label>Justificativas<input type="text" name="justificativas" required /></label>
-          <label>Macroprocesso(motivo)<input type="text" name="macroprocesso" required /></label>
+          <label>Macroprocesso (motivo)<input type="text" name="macroprocesso" required /></label>
           <label>Área<input type="text" name="area" required /></label>
         </div>
         <button type="submit" class="enviar-btn">Enviar</button>
@@ -52,26 +55,31 @@
 
     <section id="adminTabela" class="hidden">
       <h3>Respostas dos Colaboradores</h3>
-      <div class="table-wrapper">
-        <table id="respostaTabela" class="editable-table">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Matrícula</th>
-              <th>Mês</th>
-              <th>Data</th>
-              <th>Número de Horas</th>
-              <th>Autorização</th>
-              <th>Justificativas</th>
-              <th>Macroprocesso(motivo)</th>
-              <th>Área</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+      <div class="tabela-alerta-container">
+        <div id="alertaContainer"></div>
+        <div class="table-wrapper">
+          <table id="respostaTabela" class="editable-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Mês</th>
+                <th>Data</th>
+                <th>Número de Horas</th>
+                <th>Autorização</th>
+                <th>Justificativas</th>
+                <th>Macroprocesso</th>
+                <th>Área</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="botoes-admin">
+          <button class="limpar-btn" onclick="limparRespostas()">Apagar Informações</button>
+        </div>
       </div>
     </section>
   </main>
 </body>
 </html>
- 

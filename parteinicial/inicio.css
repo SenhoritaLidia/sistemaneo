@@ -1,161 +1,178 @@
 :root {
-    --bg-color: #f3f8f4;
-    --text-color: #1b2727;
-    --primary: #326d6c;
-    --card-bg: #ffffff;
-    --button-bg: #1c4443;
-    --button-hover: #2f3c4f;
-  }
-  
-  body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(to bottom right, #d5dddf, #f3f8f4);
-    color: var(--text-color);
-    transition: all 0.3s ease;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .topbar {
-    background-color: #ffffffcc;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 24px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .logo {
-    height: 48px;
-  }
-  
-  .nav a {
-    margin: 0 12px;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 16px;
-  }
-  
-  .nav a:hover {
-    color: var(--primary);
-  }
-  
-  .toggle-theme button {
-    padding: 8px 16px;
-    border: 1px solid var(--primary);
-    background: none;
-    color: var(--primary);
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  
-  .toggle-theme button:hover {
-    background: var(--primary);
-    color: white;
-  }
-  
-  .container {
-    padding: 32px 20px;
-    max-width: 1100px;
-    margin: auto;
-  }
-  
-  h1, h2, h3 {
-    color: var(--text-color);
-  }
-  
-  .role-select {
-    margin: 30px 0;
-  }
-  
-  .role-btn {
-    padding: 10px 20px;
-    margin: 10px 10px 0 0;
-    background-color: var(--button-bg);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  
-  .role-btn:hover {
-    background-color: var(--button-hover);
-  }
-  
-  .form-area {
-    background: var(--card-bg);
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin-top: 24px;
-  }
-  
-  .field-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-  }
-  
-  .field-grid label {
-    font-weight: 600;
-    color: var(--text-color);
-  }
-  
-  .field-grid input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-top: 6px;
-  }
-  
-  .enviar-btn {
-    margin-top: 20px;
-    padding: 12px 20px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  .enviar-btn:hover {
-    background-color: var(--button-hover);
-  }
-  
-  .table-wrapper {
-    overflow-x: auto;
-    margin-top: 24px;
-  }
-  
-  .editable-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .editable-table th,
-  .editable-table td {
-    padding: 10px 14px;
-    border: 1px solid #ccc;
-    text-align: left;
-    font-size: 15px;
-  }
-  
-  .editable-table th {
-    background-color: var(--button-bg);
-    color: white;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
+  --bg-color: #f3f8f4;
+  --text-color: #1b2727;
+  --primary: #326d6c;
+  --card-bg: #ffffff;
+  --button-bg: #1c4443;
+  --button-hover: #2f3c4f;
+  --gradient-bg: linear-gradient(to bottom right, #d5dddf, #f3f8f4);
+  --dark-bg: linear-gradient(to bottom right, #1b2727, #2f3c4f);
+  --dark-text: #f3f8f4;
+  --dark-card: #2f3c4f;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--gradient-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.escuro {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.topbar {
+  background-color: #ffffffcc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar.escuro {
+  background-color: #2f3c4fcc;
+}
+
+.nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+.toggle-theme button {
+  padding: 8px 16px;
+  border: 1px solid var(--primary);
+  background: none;
+  color: var(--primary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.toggle-theme button:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.container {
+  padding: 32px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h1, h2, h3 {
+  color: inherit;
+}
+
+.role-select {
+  margin: 30px 0;
+}
+
+.role-btn {
+  padding: 10px 20px;
+  margin: 10px 10px 0 0;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.role-btn:hover {
+  background-color: var(--button-hover);
+}
+
+.form-area {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 24px;
+}
+
+body.escuro .form-area {
+  background: var(--dark-card);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.field-grid label {
+  font-weight: 600;
+  color: inherit;
+}
+
+.field-grid input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.enviar-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.enviar-btn:hover {
+  background-color: var(--button-hover);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 24px;
+}
+
+.editable-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.editable-table th,
+.editable-table td {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 15px;
+}
+
+.editable-table th {
+  background-color: var(--button-bg);
+  color: white;
+}
+
+body.escuro .editable-table th {
+  background-color: var(--button-hover);
+}
+
+.hidden {
+  display: none;
+}
+
