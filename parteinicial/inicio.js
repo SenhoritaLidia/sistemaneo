@@ -5,16 +5,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const adminTabela = document.getElementById('adminTabela');
   const alertasDiv = document.getElementById('alertasHoras');
 
+  // Criação do botão de logout
+  const botaoSair = document.createElement('button');
+  botaoSair.textContent = 'Sair do modo administrador';
+  botaoSair.id = 'botaoSairAdmin';
+  botaoSair.className = 'btn-sair-admin'; // use essa classe pra estilizar no CSS
+  botaoSair.style.margin = '1rem 0';
+  botaoSair.style.display = 'none'; // inicialmente oculto
+  adminTabela.parentNode.insertBefore(botaoSair, adminTabela); // adiciona acima da tabela
+
   window.selecionarPapel = function (papel) {
     if (papel === 'admin') {
-      formColaborador.classList.add('hidden');
-      adminTabela.classList.remove('hidden');
-      carregarRespostas();
+      const senha = prompt('Digite a senha de administrador:');
+      const senhaCorreta = 'Neo!adm777z#'; // Altere essa senha conforme necessário
+
+      if (senha === senhaCorreta) {
+        formColaborador.classList.add('hidden');
+        adminTabela.classList.remove('hidden');
+        botaoSair.style.display = 'inline-block';
+        carregarRespostas();
+      } else {
+        alert('Senha incorreta! Acesso negado.');
+      }
     } else {
       formColaborador.classList.remove('hidden');
       adminTabela.classList.add('hidden');
+      botaoSair.style.display = 'none';
     }
   };
+
+  // Evento para botão de sair
+  botaoSair.addEventListener('click', () => {
+    formColaborador.classList.remove('hidden');
+    adminTabela.classList.add('hidden');
+    botaoSair.style.display = 'none';
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -95,3 +120,4 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('modo', 'claro');
   }
 });
+

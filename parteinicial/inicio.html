@@ -24,7 +24,7 @@
   <main class="container">
     <section class="welcome">
       <h1>Bem-vindo(a)!</h1>
-      <p>Aqui você pode acompanhar seus projetos, relatórios e informações internas da companhia.</p>
+      <p>Aqui você pode acompanhar suas horas extras e o controle de horários</p>
     </section>
 
     <section class="role-select">
@@ -39,14 +39,48 @@
       <h3>PREENCHA AS INFORMAÇÕES ABAIXO</h3>
       <form id="colabForm">
         <div class="field-grid">
-          <label>Nome<input type="text" name="nome" required /></label>
-          <label>Matrícula<input type="text" name="matricula" required /></label>
-          <label>Mês<input type="text" name="mes" required /></label>
-          <label>Número de Horas<input type="number" name="horas" min="0" required /></label>
-          <label>Autorização<input type="text" name="autorizacao" required /></label>
-          <label>Justificativas<input type="text" name="justificativas" required /></label>
-          <label>Macroprocesso (motivo)<input type="text" name="macroprocesso" required /></label>
-          <label>Área<input type="text" name="area" required /></label>
+          <label>Nome
+            <input type="text" name="nome" required />
+          </label>
+          <label>Matrícula
+            <input type="text" name="matricula" required inputmode="numeric" pattern="[0-9]*" />
+          </label>
+          <label>Data
+            <input type="text" name="mes" required />
+          </label>
+          <label>Número de Horas
+            <input type="number" name="horas" min="0" step="0.1" required />
+          </label>
+          <label>Autorização
+            <input type="text" name="autorizacao" required />
+          </label>
+          <label>Justificativas
+            <input type="text" name="justificativas" required />
+          </label>
+          <label>Macroprocesso (motivo)
+            <select name="macroprocesso" required>
+              <option value="" disabled selected>Selecione...</option>
+              <option>Atendimento de notas comerciais</option>
+              <option>Contingências em Ocorrências</option>
+              <option>Demandas administrativas</option>
+              <option>Eletricista Plantão (cobrir escala)</option>
+              <option>Ocorrências Críticas (Elet)</option>
+              <option>Plano de Manutenção</option>
+              <option>Risco de acidente com a população</option>
+              <option>STC Plantão ( FDS e Feriado)</option>
+              <option>Suporte operacional para atendimento de emergenciais</option>
+              <option>Outros (situações técnicas)</option>
+            </select>
+          </label>
+          <label>Área
+            <select name="area" required>
+              <option value="" disabled selected>Selecione...</option>
+              <option>Administrativo</option>
+              <option>Plantão</option>
+              <option>STC - Ligação</option>
+              <option>STC - Perdas</option>
+            </select>
+          </label>
         </div>
         <button type="submit" class="enviar-btn">Enviar</button>
       </form>
@@ -73,11 +107,10 @@
             <tbody></tbody>
           </table>
         </div>
-        <div class="botoes-admin">
-          <button class="limpar-btn" onclick="limparRespostas()">Apagar Informações</button>
         </div>
       </div>
     </section>
   </main>
 </body>
 </html>
+
