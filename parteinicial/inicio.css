@@ -1,11 +1,12 @@
 :root {
-  --bg-color: #f3f8f4;
+  --bg-color: #ffffff;
   --text-color: #1b2727;
-  --primary: #326d6c;
+  --primary: #79c000;
+  --secondary: #009739;
   --card-bg: #ffffff;
-  --button-bg: #1c4443;
-  --button-hover: #2f3c4f;
-  --gradient-bg: linear-gradient(to bottom right, #d5dddf, #f3f8f4);
+  --button-bg: #79c000;
+  --button-hover: #5a9600;
+  --gradient-bg: linear-gradient(to bottom right, #dff2d8, #ffffff);
   --dark-bg: linear-gradient(to bottom right, #1b2727, #2f3c4f);
   --dark-text: #f3f8f4;
   --dark-card: #2f3c4f;
@@ -52,21 +53,21 @@ body.escuro {
 }
 
 .nav a:hover {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 .toggle-theme button {
   padding: 8px 16px;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--secondary);
   background: none;
-  color: var(--primary);
+  color: var(--secondary);
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
 }
 
 .toggle-theme button:hover {
-  background: var(--primary);
+  background: var(--secondary);
   color: white;
 }
 
@@ -78,6 +79,21 @@ body.escuro {
 
 h1, h2, h3 {
   color: inherit;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome::before {
+  content: "";
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Iberdrola_Logo.svg/2560px-Iberdrola_Logo.svg.png') no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 60px;
+  display: inline-block;
 }
 
 .role-select {
@@ -122,7 +138,8 @@ body.escuro .form-area {
   color: inherit;
 }
 
-.field-grid input {
+.field-grid input,
+.field-grid select {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -176,3 +193,26 @@ body.escuro .editable-table th {
   display: none;
 }
 
+.alerta-horas {
+  background: #fff3cd;
+  color: #856404;
+  padding: 10px;
+  margin: 10px 0;
+  border-left: 5px solid #ffc107;
+  border-radius: 4px;
+}
+
+.btn-sair-admin {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  padding: 10px 16px;
+  font-weight: 600;
+  color: var(--primary);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-sair-admin:hover {
+  background-color: var(--primary);
+ color: white;
+}

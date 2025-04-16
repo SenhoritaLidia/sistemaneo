@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabela = document.getElementById('respostaTabela').querySelector('tbody');
   const formColaborador = document.getElementById('formColaborador');
   const adminTabela = document.getElementById('adminTabela');
-  const alertasDiv = document.getElementById('alertasHoras');
+  const alertasDiv = document.getElementById('alertaContainer');
 
   // Criação do botão de logout
   const botaoSair = document.createElement('button');
