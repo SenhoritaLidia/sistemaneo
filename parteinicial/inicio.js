@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alertasDiv.innerHTML = '';
     const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
 
-    const ordemCampos = ['nome', 'matricula', 'mes', 'data', 'horas', 'autorizacao', 'justificativas', 'macroprocesso', 'area'];
+    const ordemCampos = ['nome', 'matricula', 'data', 'horas', 'autorizacao', 'justificativas', 'macroprocesso', 'area'];
     const somaHorasPorColaborador = {};
 
     respostas.forEach((resposta) => {
