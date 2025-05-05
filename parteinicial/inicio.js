@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         botaoSair.style.display = 'inline-block';
         carregarRespostas();
       } else {
-        alert('Senha incorreta! Acesso negado.');
+        alert('Senha incorreta!');
       }
     } else {
       formColaborador.classList.remove('hidden');
