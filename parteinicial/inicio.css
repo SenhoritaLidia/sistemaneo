@@ -29,19 +29,19 @@ body.escuro {
 }
 
 .topbar {
-  background-color: #ffffffcc;
+  background-color: #525e52cc;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(250, 1, 1, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .topbar.escuro {
-  background-color: #2f3c4fcc;
+  background-color: #ffffffcc;
 }
 
 .nav a {
