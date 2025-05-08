@@ -9,15 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const botaoSair = document.createElement('button');
   botaoSair.textContent = 'Sair do modo administrador';
   botaoSair.id = 'botaoSairAdmin';
-  botaoSair.className = 'btn-sair-admin'; // use essa classe pra estilizar no CSS
+  botaoSair.className = 'btn-sair-admin';
   botaoSair.style.margin = '1rem 0';
-  botaoSair.style.display = 'none'; // inicialmente oculto
-  adminTabela.parentNode.insertBefore(botaoSair, adminTabela); // adiciona acima da tabela
+  botaoSair.style.display = 'none';
+  adminTabela.parentNode.insertBefore(botaoSair, adminTabela);
 
   window.selecionarPapel = function (papel) {
     if (papel === 'admin') {
       const senha = prompt('Digite a senha de administrador:');
-      const senhaCorreta = 'Neo!adm777z#'; // Altere essa senha conforme necessário
+      const senhaCorreta = '12345';
 
       if (senha === senhaCorreta) {
         formColaborador.classList.add('hidden');
@@ -34,21 +34,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Evento para botão de sair
+  // Botão de sair do modo admin
   botaoSair.addEventListener('click', () => {
     formColaborador.classList.remove('hidden');
     adminTabela.classList.add('hidden');
     botaoSair.style.display = 'none';
   });
 
+  // Envio do formulário
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const dados = Object.fromEntries(new FormData(form).entries());
+
+    // Validação simples
+    if (!dados.nome || !dados.matricula || !dados.horas) {
+      alert('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+
     let respostas = JSON.parse(localStorage.getItem('respostas')) || [];
     respostas.push(dados);
     localStorage.setItem('respostas', JSON.stringify(respostas));
     form.reset();
     alert('Respostas enviadas com sucesso!');
+
+    // Se admin estiver visualizando, atualiza a tabela e alertas em tempo real
+    if (!adminTabela.classList.contains('hidden')) {
+      carregarRespostas();
+    }
   });
 
   function carregarRespostas() {
@@ -56,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alertasDiv.innerHTML = '';
     const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
 
-    const ordemCampos = ['nome', 'matricula', 'data', 'horas', 'autorizacao', 'justificativas', 'macroprocesso', 'area'];
+    const ordemCampos = ['nome', 'matricula', 'horas', 'autorizacao', 'justificativas', 'macroprocesso', 'area'];
     const somaHorasPorColaborador = {};
 
     respostas.forEach((resposta) => {
@@ -75,17 +89,19 @@ document.addEventListener('DOMContentLoaded', () => {
       tabela.appendChild(linha);
     });
 
+    // Exibir alertas se o colaborador ultrapassou 35h
     for (let chave in somaHorasPorColaborador) {
       const total = somaHorasPorColaborador[chave];
       if (total >= 35) {
         const alerta = document.createElement('div');
         alerta.className = 'alerta-horas';
-        alerta.textContent = `⚠️ O colaborador ${chave} já registrou ${total} horas extras.`;
+        alerta.textContent = `⚠️ O colaborador ${chave} já registrou ${total.toFixed(1)} horas extras.`;
         alertasDiv.appendChild(alerta);
       }
     }
   }
 
+  // Modo escuro/claro
   const toggle = document.getElementById('modoToggle');
   const body = document.body;
   const modoAtual = localStorage.getItem('modo');
